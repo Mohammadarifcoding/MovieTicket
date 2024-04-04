@@ -17,22 +17,27 @@ const Navbar = () => {
             link:'/experience',
             DropDown :[
                 {
+                    id:1,
                     NavName:'dropdown1',
                     link:'/dropdown2'
                 },
                 {
+                    id:2,
                     NavName:'dropdown1',
                     link:'/dropdown2'
                 },
                 {
+                    id:3,
                     NavName:'dropdown1',
                     link:'/dropdown2'
                 },
                 {
+                    id:4,
                     NavName:'dropdown1',
                     link:'/dropdown2'
                 },
                 {
+                    id:5,
                     NavName:'dropdown1',
                     link:'/dropdown2'
                 }
@@ -44,22 +49,27 @@ const Navbar = () => {
             link:'/offers',
             DropDown :[
                 {
+                    id:1,
                     NavName:'dropdown1',
                     link:'/dropdown2'
                 },
                 {
+                    id:2,
                     NavName:'dropdown1',
                     link:'/dropdown2'
                 },
                 {
+                    id:3,
                     NavName:'dropdown1',
                     link:'/dropdown2'
                 },
                 {
+                    id:4,
                     NavName:'dropdown1',
                     link:'/dropdown2'
                 },
                 {
+                    id:5,
                     NavName:'dropdown1',
                     link:'/dropdown2'
                 }
@@ -72,22 +82,27 @@ const Navbar = () => {
             link:'/foods',
             DropDown :[
                 {
+                    id:1,
                     NavName:'dropdown1',
                     link:'/dropdown2'
                 },
                 {
+                    id:2,
                     NavName:'dropdown1',
                     link:'/dropdown2'
                 },
                 {
+                    id:3,
                     NavName:'dropdown1',
                     link:'/dropdown2'
                 },
                 {
+                    id:4,
                     NavName:'dropdown1',
                     link:'/dropdown2'
                 },
                 {
+                    id:5,
                     NavName:'dropdown1',
                     link:'/dropdown2'
                 }
@@ -99,26 +114,6 @@ const Navbar = () => {
             NavName:'Location',
             link:'/location',
             DropDown :[
-                {
-                    NavName:'dropdown1',
-                    link:'/dropdown2'
-                },
-                {
-                    NavName:'dropdown1',
-                    link:'/dropdown2'
-                },
-                {
-                    NavName:'dropdown1',
-                    link:'/dropdown2'
-                },
-                {
-                    NavName:'dropdown1',
-                    link:'/dropdown2'
-                },
-                {
-                    NavName:'dropdown1',
-                    link:'/dropdown2'
-                }
             ]
         }
     ]
@@ -131,23 +126,26 @@ const Navbar = () => {
                 <img src="/logo.png" alt="" />
             </div> 
             {/* Ul item */}
-               <div className=''>
+               <div className='lg:block hidden'>
                    <ul className='flex gap-2 '>
                     {
                         listItem?.map((navItem)=> (
                             <div   key={navItem.id} className='relative group'>
                             <Link to={navItem.link}>
-                             <li className='py-6 text-lg px-5 border-b-[3px] uppercase border-white cursor-pointer hover:border-[#6E3996] hover:text-[#6E3996]'>{navItem.NavName}</li>
+                             <li className='py-6 text-lg px-5 border-b-[3px] uppercase border-white cursor-pointer group-hover:border-[#6E3996] group-hover:text-[#6E3996]'>{navItem.NavName}</li>
                             </Link>
 
 
-                            <div className='bg-white h-[100px] hidden group-hover:block text-black absolute px-3  pt-2'>
-                                fdsfads
+                            <div className={`bg-white ${navItem.DropDown.length === 0 ? 'group-hover:hidden':''} shadow-xl min-h-full w-[200px]  overflow-y-auto hidden group-hover:block text-black absolute `}>
+                               
                                 {navItem?.DropDown.map((DropDownItem)=> (
-                                     <li>
-
+                                    <Link  key={DropDownItem.id}>
+                                     <li className='px-4 py-4 border-b  hover:text-[#6E3996]'>
+                                         {DropDownItem.NavName}
                                      </li>
+                                    </Link>
                                 ))}
+
                             </div>
                             </div>
                           
